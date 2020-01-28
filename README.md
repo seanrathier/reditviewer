@@ -1,3 +1,37 @@
+#Redit Viewer
+
+I've chosen to use the react boilerplate maintained by Max Stoiber,  as I always create projects using this boilplate. The avantages of using this is one is that it is highly scalable and has scripts to generates a lot of the, ahem,  boilerplate, for react, redux, and sagas.
+
+Plus we get webpack, jest, code coverage, linting, and bundle anaylisys already configure.
+
+If you are curious:  [React Boilerplate] (https://www.reactboilerplate.com/)
+
+##Code and conventions
+I am going to use Javascript,  instead of TypeScript.  My reasoning is quite simple, the boilerplate uses Javascript, and I have been recently using Flow JS professionally.  Given time, I can convert to use Typescript for 'type safing' the code.
+
+##Getting Started
+
+In a console terminal
+
+```console
+npm ci
+```
+
+or if not using nodejs latest
+
+```console
+npm install
+```
+
+You may use either but using npm installs the dependencies quicker as it references the package-lock.json and is much quicker than evaluating individual library dependencies. Quicker for CI builds.
+
+```console
+npm run start
+```
+
+Navigate to a browser window and go to:
+[http://localhost:3000](http://localhost:3000)
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
