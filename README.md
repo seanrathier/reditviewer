@@ -32,6 +32,24 @@ npm run start
 Navigate to a browser window and go to:
 [http://localhost:3000](http://localhost:3000)
 
+
+#Generation scripts
+```console
+npm run generate
+```
+Use arrow keys to select what you want to create.
+
+#Assumptions
+1. No internationalization required
+2. No mention of posting replies to redits so assuming that post data to redits is not required.  I guess that would mean we would need the ReditAPI and it is not to be used.
+
+
+#App Architecture / Structure
+
+Immutability:  Document immer,  they may not be familiar
+
+
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
