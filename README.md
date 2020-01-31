@@ -40,6 +40,7 @@ Use arrow keys to select what you want to create.
 ## Issues encountered
 
 1. When trying to get the same thumbnail size as the actual Reddit post, I tried to get the resolution via the JSON records 'preview > images > sources > resolution' property.  The problem is we cannot access the image url in the preview property. So I tried to take the thumbnail property url, and attempted to apply the sizes in the preview property, but it would skew the image resoltion.  I settled on the default size of the thumbnails.  It does not look great,  but it satisfies the requirement.
+2. I was having some issues unit testing the sagas,  so they are currently missing. 
 
 ## Code and conventions
 
@@ -108,3 +109,25 @@ This subredditFetchSuccess action is dispatched when the application has sucessf
 
 The subredditFetchError action is dispatched when an error occurs while fetching data from Reddit.
 
+### app > containers > RedditViewer > sagas
+
+This is the redux middleware that allows us to handle side efects.  Calssic example of saga side effects,  show and hide a loading animation while fetching data.
+
+There is one main sagas for this app, getSubReddits function generator.  The function is executed for on the latest (TAKE_LATEST) request with the type SUBREDDIT_DATA_REQUEST.
+
+```javascript
+    yield takeLatest(SUBREDDIT_DATA_REQUEST, getSubReddits);
+```
+
+In this saga we determin if we should be querying for older, aor newer Reddit data.  After building a url we fetch data from Reddits,  and if that is sucessfull we dispatch an action SUBREDDIT_DATA_FETCH_SUCCESS with the data payload.  The reducer will recceive the data and change the state.
+
+See comments in code for detailed explanation.
+
+### app > containers > RedditViewer > reducer
+The reducer is the single source of truth for application state,  it is immutable.
+
+This is the final step in our request for data.  The reducer is sent messages and the type this one is looking for is SUBREDDIT_DATA_FETCH_SUCCESS, this means we have new data.
+
+The reducer determines if we should be appending the data (older Reddits), or pre-pending the data (new Reddits).  We also keep track of the first and last reddit to send on the next fetch for data.
+
+See comments in code for detailed explanation.
