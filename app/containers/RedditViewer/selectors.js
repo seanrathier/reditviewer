@@ -58,6 +58,9 @@ const makeSelectSubredditsDerived = () =>
           score: reddits.data.score,
           permalink: reddits.data.permalink,
           commentCount: reddits.data.num_comments,
+          thumbnail: reddits.data.thumbnail,
+          thumbnailWidth: reddits.data.thumbnail_width,
+          thumbnailHeight: reddits.data.thumbnail_height,
         }))
         : [];
       return derivedState;

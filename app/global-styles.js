@@ -7,10 +7,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1;
     font-family: IBMPlexSans, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
+    background-color: #FFFFFF;
   }
 
   body {
-    ffont-family: IBMPlexSans, Arial, sans-serif;
+    font-family: IBMPlexSans, Arial, sans-serif;
   }
 
   body.fontLoaded {

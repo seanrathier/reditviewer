@@ -1,6 +1,6 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import request from 'utils/request';
-import { SUBREDDIT_DATA_REQUEST } from './constants';
+import { SUBREDDIT_DATA_REQUEST, REDDIT_URL } from './constants';
 import {
   makeSelectLimit,
   makeSelectNextRedditsAfter,
@@ -25,7 +25,7 @@ export function* getSubReddits(action) {
       ? `before=${before}`
       : `after=${nextAfter}`;
 
-  const requestURL = `https://www.reddit.com/r/news/new.json?limit=${limit}&${fetchFrom}`;
+  const requestURL = `${REDDIT_URL}?limit=${limit}&${fetchFrom}`;
 
   try {
     yield put(subredditFetching());

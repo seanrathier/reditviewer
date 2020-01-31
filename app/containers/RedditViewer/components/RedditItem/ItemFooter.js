@@ -6,4 +6,5 @@ export const ItemFooter = styled.div`
   color: rgb(120, 124, 126);
   font-weight: 700;
   line-height: 16px;
+  padding-top: 10px;
 `;
