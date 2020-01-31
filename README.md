@@ -48,13 +48,13 @@ I am going to use Javascript,  instead of TypeScript.  My reasoning is quite sim
 
 I am using ESLint and Prettier libraries to ensure the code for the whole app is formatted and structured the same way.
 
-I've implemented the application UI using React hooks.  I wam still fairly new to React hooks,  and find the code more intuitive when reading.
+I've implemented the application UI using React hooks.  I am still fairly new to React hooks,  and find the code more intuitive when reading.
 
-Redux to store application state to ensure there is a single source of truth, and state is read only.
+Using redux to store application state to ensure there is a single source of truth, and state is read only.
 
 Redux sagas are used to facilitate side effects, such as fetching Reddit data, and changing state while fetching data.
 
-I've implemented to Redux store using Immer JS to ensure immutable state, an alternative the Immutable JS. I find it's easier to apply state changes using draft and
+I've implemented to Redux store using Immer JS to ensure immutable state, an alternative the Immutable JS. I find it's easier to apply state changes using draft and produce.
 
 ## Boilerplate
 Many people choose create-react-app, but I like to use the react boilerplate maintained by Max Stoiber, as I always create projects using this boilplate. The avantages of using this is one is that it is highly scalable and has scripts to generates a lot of the, ahem,  boilerplate, for react, redux, and sagas.
@@ -73,33 +73,32 @@ The App container uses a React Loadable instance of the RedditViewer.  Given tha
 
 ### app > containers > RedditViewer
 
-The RedditViewer page is the main container that connects to redux store, and dipatches actions to load initial data and refesh the data every minute.  The data request dispatches are initiated using React's useEffect hook.
+The RedditViewer page is the main container that connects to redux store, and dispatches actions to load initial data and refesh the data every minute.  The data request dispatches are initiated using React's useEffect hook.
 
-For the sake of showing that I understand Redux without hooks I implemented the connect higher order component, and mapped state to props, and mapped dispatch the props.
+For the sake of showing that I understand Redux without hooks I implemented the connect higher order component, and mapped state to props, and mapped dispatch the props. We can also use the redux hook useSelect to get the reducer state.
 
 The RedditViewer renders a button at the bottom of the page to load 25 more Reddit posts. 
 
-
 ### app > containers > RedditViewer > components > RedditItemsList
 
-I prefer to locate components that are domain specific to the container within the same directory.  Only shared components across container domains shold go into a glocal component directory.
+I prefer to locate components that are domain specific to the container within the same directory.  Only shared components across container domains should go into a glocal component directory.
 
-The RedditItemsList is a functional component that accepts an array of Reddit objects as props.  The RedditItemsList does a map of the array and returns a list of RedditItem(s) and renders them.
+The RedditItemsList is a functional component that accepts an array of Reddit derived objects as props.  The RedditItemsList does a map of the array and returns a list of RedditItem(s) and renders them.
 
 ### app > containers > RedditViewer > components > RedditItem
 
 This is the component that renders the individual Reddit posts.  It accepts a property which is an individual Reddit post.
 
 1. It shortens the url using regex to the domain of the link.
-2. Uses moment-mini to get the time from the utc date the post was created
-3. Figures out if 'Comment' or 'Comments' should be used fot the comment link
-4. Adds the number of comments with a link to the Reddit post
-5. Shows the post title that links to the Reddit post (permalink)
-6. Shows the thumnai if there is one present.
+2. Uses moment-mini to get the time from the utc date the post was created.
+3. Figures out if 'Comment' or 'Comments' should be used fot the comment link.
+4. Adds the number of comments with a link to the Reddit post.
+5. Shows the post title that links to the Reddit post (permalink).
+6. Shows the thumbnai if there is one present.
 
 ### app > containers > RedditViewer > actions
 
-The actions in this file are used to dispatch messages to the redux middleware.  These actions can be handled by either sagas, or reducers. The action can pass a payload
+The actions in this file are used to dispatch messages to the redux middleware.  These actions can be handled by either sagas, or reducers. The action can pass a payload to the redux middleware.
 
 The getSubredditData action is the initial call to request data from Reddit.  The options have one property, refresh: boolean
 
@@ -111,7 +110,7 @@ The subredditFetchError action is dispatched when an error occurs while fetching
 
 ### app > containers > RedditViewer > sagas
 
-This is the redux middleware that allows us to handle side efects.  Calssic example of saga side effects,  show and hide a loading animation while fetching data.
+This is the redux middleware that allows us to handle side efects.  Classic example of saga side effects,  show and hide a loading animation while fetching data.
 
 There is one main sagas for this app, getSubReddits function generator.  The function is executed for on the latest (TAKE_LATEST) request with the type SUBREDDIT_DATA_REQUEST.
 
@@ -119,7 +118,7 @@ There is one main sagas for this app, getSubReddits function generator.  The fun
     yield takeLatest(SUBREDDIT_DATA_REQUEST, getSubReddits);
 ```
 
-In this saga we determin if we should be querying for older, aor newer Reddit data.  After building a url we fetch data from Reddits,  and if that is sucessfull we dispatch an action SUBREDDIT_DATA_FETCH_SUCCESS with the data payload.  The reducer will recceive the data and change the state.
+In this saga we determine if we should be querying for older, or newer Reddit data.  After building a url we fetch data from Reddits,  and if that is sucessfull we dispatch an action SUBREDDIT_DATA_FETCH_SUCCESS with the data payload.  The reducer will recceive the data and change the state.
 
 See comments in code for detailed explanation.
 
