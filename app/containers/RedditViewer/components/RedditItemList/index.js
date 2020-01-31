@@ -2,11 +2,11 @@
  *
  * RedditItemList
  *
- * I prefer to locate components that are domain specific to the container 
+ * I prefer to locate components that are domain specific to the container
  * within the same directory.  Only shared components across container domains
- * should go into a glocal component directory. The RedditItemsList is a functional 
+ * should go into a glocal component directory. The RedditItemsList is a functional
  * component that accepts an array of Reddit objects as props.  The RedditItemsList does
- *  a map of the array and returns a list of RedditItem(s) and renders them.
+ * a map of the array and returns a list of RedditItem(s) and renders them.
  *
  */
 
@@ -15,10 +15,10 @@ import PropTypes from 'prop-types';
 import RedditItem from '../RedditItem';
 
 export function RedditItemList(props) {
-  const { subRedditData } = props;
+  const { reddits } = props;
 
-  const content = subRedditData ? (
-    subRedditData.map(reddit => <RedditItem key={reddit.id} reddit={reddit} />)
+  const content = reddits ? (
+    reddits.map(reddit => <RedditItem key={reddit.id} reddit={reddit} />)
   ) : (
     <div />
   );
@@ -27,11 +27,11 @@ export function RedditItemList(props) {
 }
 
 RedditItemList.defaultProps = {
-  subRedditData: [], // Array of reddit posts derived
+  reddits: [], // Array of reddit posts derived
 };
 
 RedditItemList.propTypes = {
-  subRedditData: PropTypes.array, // Array of reddit posts derived
+  reddits: PropTypes.array, // Array of reddit posts derived
 };
 
 export default memo(RedditItemList);

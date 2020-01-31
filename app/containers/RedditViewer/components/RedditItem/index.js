@@ -1,7 +1,9 @@
 /**
  *
  * RedditItem
- * This is the component that renders the individual Reddit posts.  It accepts a property which is an individual Reddit post.
+ *
+ * This is the component that renders the individual Reddit posts.
+ * It accepts a property which is an individual Reddit post.
  * 1. It shortens the url using regex to the domain of the link.
  * 2. Uses moment-mini to get the time from the utc date the post was created
  * 3. Figures out if 'Comment' or 'Comments' should be used fot the comment link
@@ -50,6 +52,7 @@ function RedditItem(props) {
       {reddit.thumbnail && reddit.thumbnail !== 'self' && (
         <ItemFooter>
           <Img
+            alt={reddit.title}
             src={reddit.thumbnail}
             height={reddit.thumbnailHeight}
             width={reddit.thumbnailWidth}

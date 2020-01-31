@@ -14,41 +14,33 @@ const selectRedditViewerDomain = state => state.redditViewer || initialState;
 const makeSelectLimit = () =>
   createSelector(
     selectRedditViewerDomain,
-    redditViewer =>
-      // Sean:  redo this code,  stinks
-      redditViewer.limit,
+    redditViewer => redditViewer.limit,
   );
 
 const makeSelectNextRedditsAfter = () =>
   createSelector(
     selectRedditViewerDomain,
-    redditViewer =>
-      // Sean:  redo this code,  stinks
-      redditViewer.lastReddit,
+    redditViewer => redditViewer.lastReddit,
   );
 
 const makeSelectNextRedditsBefore = () =>
   createSelector(
     selectRedditViewerDomain,
-    redditViewer =>
-      // Sean:  redo this code,  stinks
-      redditViewer.firstReddit,
+    redditViewer => redditViewer.firstReddit,
   );
 
 const makeSelectSubreddits = () =>
   createSelector(
     selectRedditViewerDomain,
-    redditData =>
-      // Sean:  redo this code,  stinks
-      redditData.subReddits,
+    redditData => redditData.subReddits,
   );
 
+/*  eslint-disable prettier/prettier */
 const makeSelectSubredditsDerived = () =>
   createSelector(
     makeSelectSubreddits(),
-    subReddits => {
-      // Sean:  redo this code,  stinks
-      const derivedState = subReddits
+    subReddits =>
+      subReddits
         ? subReddits.map(reddits => ({
           id: reddits.data.name,
           title: reddits.data.title,
@@ -62,20 +54,9 @@ const makeSelectSubredditsDerived = () =>
           thumbnailWidth: reddits.data.thumbnail_width,
           thumbnailHeight: reddits.data.thumbnail_height,
         }))
-        : [];
-      return derivedState;
-    },
+        : [],
   );
-
-/**
- * Default selector used by RedditViewer
- */
-
-// const makeSelectRedditViewer = () =>
-//   createSelector(
-//     selectRedditViewerDomain,
-//     substate => substate,
-//   );
+/*  eslint-enable prettier/prettier */
 
 export {
   selectRedditViewerDomain,

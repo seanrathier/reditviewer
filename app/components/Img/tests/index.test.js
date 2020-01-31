@@ -21,12 +21,6 @@ describe('<Img />', () => {
     expect(element.hasAttribute('src')).toBe(true);
   });
 
-  it('should have an alt attribute', () => {
-    const { container } = renderComponent();
-    const element = container.querySelector('img');
-    expect(element.hasAttribute('alt')).toBe(true);
-  });
-
   it('should not have a class attribute', () => {
     const { container } = renderComponent();
     const element = container.querySelector('img');

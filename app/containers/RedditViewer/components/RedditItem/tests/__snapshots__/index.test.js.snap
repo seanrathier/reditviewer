@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RedditItem /> Should render and match the snapshot 1`] = `
+<article
+  class="ArticleWrapper-sc-17yr5sl-0 izUUIe"
+>
+  <div
+    class="ItemHeader-dmv6uv-0 kVQhFP"
+  >
+    <div>
+      Posted by 
+      fakeAuthor
+    </div>
+    <div>
+      45 years ago
+    </div>
+  </div>
+  <h3>
+    <a
+      class="TitleLink-kxvlag-0 kSfxta"
+      href="https://www.reddit.com/fake/path/to/reddit/2134234"
+    >
+      fakeTitle
+    </a>
+  </h3>
+  <div>
+    <a
+      class="A-br8h0y-0 kwPCu"
+      href="http://fakeUrl.com/somethingelse"
+    >
+      fakeurl.com
+    </a>
+  </div>
+  <div
+    class="ItemFooter-dln1x-0 iRenms"
+  >
+    <img
+      alt="fakeTitle"
+      src="http://reddit.com/path/to/thumbnail.jpg"
+      width="100"
+    />
+  </div>
+  <div
+    class="ItemFooter-dln1x-0 iRenms"
+  >
+    <a
+      class="A-br8h0y-0 kwPCu"
+      href="https://www.reddit.com/fake/path/to/reddit/2134234"
+    >
+      23 Comments
+    </a>
+  </div>
+</article>
+`;

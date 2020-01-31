@@ -63,7 +63,7 @@ export function RedditViewer(props) {
   return (
     <div>
       <section>
-        <RedditItemList subRedditData={props.subRedditData} />
+        <RedditItemList reddits={props.subRedditData} />
       </section>
       {props.subRedditData && props.subRedditData.length > 0 && (
         <section>

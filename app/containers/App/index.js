@@ -30,7 +30,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={RedditPage} />
-        <Route path="" component={NotFoundPage} /> */}
+        <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
     </AppWrapper>

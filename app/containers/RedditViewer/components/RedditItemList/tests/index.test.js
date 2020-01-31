@@ -10,17 +10,42 @@ import React from 'react';
 import { render } from 'react-testing-library';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import RedditItem from '../index';
+import RedditItemList from '../index';
 
-describe('<RedditItem />', () => {
+const mockReddits = [
+  {
+    id: 'fakeId',
+    title: 'fakeTitle',
+    author: 'fakeAuthor',
+    url: 'http://fakeUrl.com/somethingelse',
+    created: 152334665,
+    score: 23,
+    permalink: 'fake/path/to/reddit/2134234',
+    commentCount: 23,
+    thumbnail: 'http://reddit.com/path/to/thumbnail.jpg',
+    thumbnailWidth: 100,
+    thumbnailHieght: 100,
+  },
+  {
+    id: 'fakeId2',
+    title: 'fakeTitle2',
+    author: 'fakeAuthor',
+    url: 'http://fakeUrl.com/somethingelse',
+    created: 1580485878,
+    score: 23,
+    permalink: 'fake/path/to/reddit/2134234',
+    commentCount: 23,
+    thumbnail: 'http://reddit.com/path/to/thumbnail.jpg',
+    thumbnailWidth: 100,
+    thumbnailHieght: 100,
+  },
+];
+
+describe('<RedditItemList />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    render(<RedditItem />);
+    render(<RedditItemList />);
     expect(spy).not.toHaveBeenCalled();
-  });
-
-  it('Expect to have additional unit tests specified', () => {
-    expect(true).toEqual(false);
   });
 
   /**
@@ -31,7 +56,12 @@ describe('<RedditItem />', () => {
   it.skip('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<RedditItem />);
+    } = render(<RedditItemList />);
     expect(firstChild).toMatchSnapshot();
+  });
+
+  it('Should render 2 reddit post with element article', () => {
+    const { container } = render(<RedditItemList reddits={mockReddits} />);
+    expect(container.querySelector('article').length === 2);
   });
 });
