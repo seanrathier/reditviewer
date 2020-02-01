@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const TitleLink = styled.a`
-  color: rgb(135, 138, 140);
+  color: #222222;
   text-decoration: none;
 `;

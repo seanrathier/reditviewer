@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const ItemFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  color: rgb(120, 124, 126);
-  font-weight: 700;
-  line-height: 16px;
+  font-weight: 300;
+  font-size: 12px;
   padding-top: 10px;
+  color: #878a8c;
+`;
+
+export const CommentLink = styled.a`
+  color: #878a8c;
+  text-decoration: none;
+  &:hover {
+    font-weight: 600;
+  }
 `;

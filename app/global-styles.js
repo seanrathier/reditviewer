@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: IBMPlexSans, Arial, sans-serif;
+    color: #222222;
   }
 
   body.fontLoaded {

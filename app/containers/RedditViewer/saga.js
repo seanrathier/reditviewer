@@ -14,21 +14,17 @@ import {
 
 export function* getSubReddits(action) {
   // Select subreddit from from store
-  const limit =
-    action.options && action.options.refresh
-      ? yield select(makeSelectLimit())
-      : yield select(makeSelectLimit());
-  const nextAfter = yield select(makeSelectNextRedditsAfter());
-  const before = yield select(makeSelectNextRedditsBefore());
-  const fetchFrom =
-    action.options && action.options.refresh
-      ? `before=${before}`
-      : `after=${nextAfter}`;
-
-  const requestURL = `${REDDIT_URL}?limit=${limit}&${fetchFrom}`;
-
   try {
     yield put(subredditFetching());
+    const limit = yield select(makeSelectLimit());
+    const nextAfter = yield select(makeSelectNextRedditsAfter());
+    const before = yield select(makeSelectNextRedditsBefore());
+    const fetchFrom =
+      action.options && action.options.refresh
+        ? `before=${before}`
+        : `after=${nextAfter}`;
+
+    const requestURL = `${REDDIT_URL}?limit=${limit}&${fetchFrom}`;
     // Call our request helper (see 'utils/request')
     const subreddits = yield call(request, requestURL);
     yield put(subredditFetchSuccess(subreddits, action.options));

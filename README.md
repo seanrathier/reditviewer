@@ -40,7 +40,7 @@ Use arrow keys to select what you want to create.
 ## Issues encountered
 
 1. When trying to get the same thumbnail size as the actual Reddit post, I tried to get the resolution via the JSON records 'preview > images > sources > resolution' property.  The problem is we cannot access the image url in the preview property. So I tried to take the thumbnail property url, and attempted to apply the sizes in the preview property, but it would skew the image resoltion.  I settled on the default size of the thumbnails.  It does not look great,  but it satisfies the requirement.
-2. I was having some issues unit testing the sagas,  so they are currently missing. 
+2. I was having some issues unit testing the sagas,  so they are currently included but skipped. 
 
 ## Code and conventions
 

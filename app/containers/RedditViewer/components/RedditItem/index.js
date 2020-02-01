@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment-mini';
 import ArticleWrapper from './ArticleWrapper';
 import { ItemHeader } from './ItemHeader';
-import { ItemFooter } from './ItemFooter';
+import { ItemFooter, CommentLink } from './ItemFooter';
 import { TitleLink } from './TitleLink';
 import Img from '../../../../components/Img';
 import H3 from '../../../../components/H3';
@@ -50,17 +50,17 @@ function RedditItem(props) {
         </div>
       )}
       {reddit.thumbnail && reddit.thumbnail !== 'self' && (
-        <ItemFooter>
+        <div>
           <Img
             alt={reddit.title}
             src={reddit.thumbnail}
             height={reddit.thumbnailHeight}
             width={reddit.thumbnailWidth}
           />
-        </ItemFooter>
+        </div>
       )}
       <ItemFooter>
-        <A href={permaLink}>{commentLink}</A>
+        <CommentLink href={permaLink}>{commentLink}</CommentLink>
       </ItemFooter>
     </ArticleWrapper>
   );
