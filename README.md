@@ -30,12 +30,6 @@ npm run generate
 ```
 Use arrow keys to select what you want to create.
 
-## Assumptions
-1.  There was no mention of linking to the actual Reddit post to view the inline comments so I chose not to do this given the time contraints.
-2. I noticed that on Reddit they prepend '/u' to all user names on the posts.  I did not do this because I think the '/u' implies a common user and may be different for other roles, such as moderators.
-3. The project requirements the gives an example to use the news Reddit site for JSON fetching.  I used the same Reddit space,  but i am going to assume we do not have implement the ability to switch to different Reddits.
-4. The project requirements implies a refresh after every minute.  I was not sure if we are suppose to retrieve new posts every minute, or just refresh the existing data set.  I implemented the refresh with new data being added to the top of the page
-5. The requirement to page 25 at  a time I am going to assume a "Load More" button will be fine,  I think given more time an infinite scroll would likely be a better UX.
 
 ## Issues encountered
 
